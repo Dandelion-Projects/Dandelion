@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dandelion - Raise your ticket for your website. Streamline customer support with an elegant, embeddable ticketing system.">
-    <title>Dandelion - Customer Support Ticketing for Your Website</title>
+    <meta name="description" content="Dandelion - A digital contracting platform connecting student developers with entrepreneurs through competitive project development. Secure escrow, automated GitHub integration, and seamless project delivery.">
+    <title>Dandelion - Digital Contracting Platform for Student Developers</title>
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="Design/Logo Favicon 1/apple-touch-icon.png">
@@ -29,6 +29,8 @@
             --bg-light: #f9fafb;
             --white: #ffffff;
             --border: #e5e7eb;
+            --success: #10b981;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         body {
@@ -109,11 +111,31 @@
             padding: 6rem 2rem;
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
         }
 
         .hero-container {
             max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -242,16 +264,26 @@
             background: var(--bg-light);
         }
 
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+        .workflow-container {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .step {
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .workflow-step {
             text-align: center;
             position: relative;
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
         }
 
         .step-number {
@@ -268,48 +300,99 @@
             margin: 0 auto 1.5rem;
         }
 
-        .step h3 {
+        .workflow-step h3 {
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--text-dark);
         }
 
-        .step p {
+        .workflow-step p {
             color: var(--text-light);
+            font-size: 0.95rem;
         }
 
-        /* Use Cases */
-        .use-cases-grid {
+        /* Two Column Layout */
+        .two-column {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
             margin-top: 3rem;
         }
 
-        .use-case-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s;
-        }
-
-        .use-case-card:hover {
-            border-color: var(--primary-blue);
-            box-shadow: 0 5px 20px rgba(37, 99, 235, 0.1);
-        }
-
-        .use-case-card h3 {
-            font-size: 1.25rem;
+        .column-content h3 {
+            font-size: 1.75rem;
             font-weight: 600;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
             color: var(--text-dark);
         }
 
-        .use-case-card p {
+        .column-content p {
             color: var(--text-light);
-            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .benefit-list {
+            list-style: none;
+        }
+
+        .benefit-list li {
+            padding: 0.75rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+        }
+
+        .benefit-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        /* Platform Features */
+        .platform-features {
+            background: var(--bg-light);
+        }
+
+        .feature-highlight {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .feature-highlight-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-highlight-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .feature-highlight-content p {
+            color: var(--text-light);
+            line-height: 1.8;
         }
 
         /* CTA Section */
@@ -401,9 +484,22 @@
                 font-size: 2rem;
             }
 
-            .features-grid,
-            .use-cases-grid {
+            .features-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .workflow-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-highlight {
+                grid-template-columns: 1fr;
+                padding: 2rem;
             }
         }
 
@@ -419,9 +515,10 @@
         <div class="nav-container">
             <a href="#" class="logo">Dandelion</a>
             <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#use-cases">Use Cases</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#for-clients">For Clients</a></li>
+                <li><a href="#for-developers">For Developers</a></li>
             </ul>
             <a href="#cta" class="cta-button">Get Started</a>
         </div>
@@ -430,54 +527,12 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
-            <div class="tagline">Raise your ticket for your website</div>
-            <h1>Customer Support Made Simple</h1>
-            <p>Transform your website into a powerful support hub. Dandelion provides an elegant, embeddable ticketing system that helps you manage customer inquiries seamlessly and professionally.</p>
+            <div class="tagline">Digital Contracting Platform</div>
+            <h1>Where Student Developers Meet Real Projects</h1>
+            <p>Connect talented student developers with entrepreneurs through competitive project development. Secure escrow, automated delivery, and seamless GitHub integration—all in one platform.</p>
             <div class="hero-buttons">
-                <a href="#cta" class="cta-button">Start Free Trial</a>
-                <a href="#how-it-works" class="button-secondary">Learn More</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Everything You Need to Support Your Customers</h2>
-                <p>Powerful features designed to streamline your customer support workflow and enhance user experience.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎫</div>
-                    <h3>Easy Ticket Creation</h3>
-                    <p>Visitors can raise tickets directly from your website with just a few clicks. No complicated forms or confusing interfaces.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Fully Customizable</h3>
-                    <p>Match your brand perfectly with customizable colors, fonts, and styling. Make Dandelion feel like a native part of your website.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Mobile Responsive</h3>
-                    <p>Works flawlessly on all devices. Your customers can raise tickets whether they're on desktop, tablet, or mobile.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Lightning Fast</h3>
-                    <p>Built for performance. Fast load times and instant ticket creation ensure your customers never wait.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Secure & Reliable</h3>
-                    <p>Enterprise-grade security keeps your customer data safe. Reliable infrastructure ensures 99.9% uptime.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Analytics Dashboard</h3>
-                    <p>Track ticket volume, response times, and customer satisfaction. Make data-driven decisions to improve your support.</p>
-                </div>
+                <a href="#cta" class="cta-button">Post a Project</a>
+                <a href="#for-developers" class="button-secondary">Join as Developer</a>
             </div>
         </div>
     </section>
@@ -486,65 +541,147 @@
     <section id="how-it-works" class="how-it-works">
         <div class="container">
             <div class="section-header">
-                <h2>Get Started in Minutes</h2>
-                <p>Setting up Dandelion on your website is quick and straightforward. No technical expertise required.</p>
+                <h2>How Dandelion Works</h2>
+                <p>A streamlined process that connects clients with the best student developers through fair competition</p>
             </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Sign Up</h3>
-                    <p>Create your free Dandelion account in seconds. No credit card required.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Customize</h3>
-                    <p>Configure your ticket system to match your brand. Set up categories, priorities, and styling.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Embed</h3>
-                    <p>Add a simple code snippet to your website. Dandelion integrates seamlessly with any platform.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Start Supporting</h3>
-                    <p>Begin receiving and managing customer tickets. Your support team can respond directly from the dashboard.</p>
+            <div class="workflow-container">
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <h3>Client Posts Project</h3>
+                        <p>Entrepreneurs and businesses post their development projects with requirements, budget, and timeline.</p>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <h3>Developers Compete</h3>
+                        <p>Student developer teams enter the competition and build their solutions independently, without direct client interaction.</p>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <h3>Virtual Review</h3>
+                        <p>Clients review all projects through secure virtual machines, seeing the UI and functionality without accessing source code.</p>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <h3>Winner Selected</h3>
+                        <p>Client selects the champion. Payment is automatically released from escrow, and code is pushed to their GitHub repository via GitHub Actions.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Use Cases Section -->
-    <section id="use-cases">
+    <!-- Platform Features -->
+    <section id="features" class="platform-features">
         <div class="container">
             <div class="section-header">
-                <h2>Perfect for Every Industry</h2>
-                <p>Dandelion works across industries, helping businesses of all sizes provide exceptional customer support.</p>
+                <h2>Built for Modern Development</h2>
+                <p>Powerful features that make digital contracting seamless, secure, and efficient</p>
             </div>
-            <div class="use-cases-grid">
-                <div class="use-case-card">
-                    <h3>E-Commerce & Retail</h3>
-                    <p>Handle order inquiries, product questions, and return requests efficiently. Keep your customers happy and coming back.</p>
+            <div class="feature-highlight">
+                <div class="feature-highlight-icon">🔒</div>
+                <div class="feature-highlight-content">
+                    <h3>Secure Escrow System</h3>
+                    <p>Funds are held securely in escrow until project completion. Payment is automatically transferred to the winning developer team once the client selects their champion. No disputes, no delays—just seamless transactions.</p>
                 </div>
-                <div class="use-case-card">
-                    <h3>SaaS & Technology</h3>
-                    <p>Support your users with technical questions, feature requests, and bug reports. Build stronger relationships with your customers.</p>
+            </div>
+            <div class="feature-highlight">
+                <div class="feature-highlight-icon">⚙️</div>
+                <div class="feature-highlight-content">
+                    <h3>Automated GitHub Integration</h3>
+                    <p>When a winner is selected, the project code is automatically pushed to the client's GitHub repository via GitHub Actions. No manual transfers, no delays—instant delivery of production-ready code.</p>
                 </div>
-                <div class="use-case-card">
-                    <h3>Healthcare & Fitness</h3>
-                    <p>Manage appointment requests, membership inquiries, and service questions. Provide personalized support at scale.</p>
+            </div>
+            <div class="feature-highlight">
+                <div class="feature-highlight-icon">🖥️</div>
+                <div class="feature-highlight-content">
+                    <h3>Virtual Machine Review</h3>
+                    <p>Clients review projects through isolated virtual machines that display the UI and functionality. Source code remains protected, ensuring intellectual property security while allowing full project evaluation.</p>
                 </div>
-                <div class="use-case-card">
-                    <h3>Travel & Hospitality</h3>
-                    <p>Handle booking inquiries, travel questions, and customer concerns. Ensure smooth experiences for your travelers.</p>
+            </div>
+            <div class="feature-highlight">
+                <div class="feature-highlight-icon">🏆</div>
+                <div class="feature-highlight-content">
+                    <h3>Competition-Based Selection</h3>
+                    <p>Multiple developer teams compete for each project, giving clients multiple options to choose from. This competitive model ensures quality, innovation, and fair pricing for everyone involved.</p>
                 </div>
-                <div class="use-case-card">
-                    <h3>Professional Services</h3>
-                    <p>Manage client inquiries, project requests, and consultation bookings. Streamline communication with your clients.</p>
+            </div>
+            <div class="feature-highlight">
+                <div class="feature-highlight-icon">🎯</div>
+                <div class="feature-highlight-content">
+                    <h3>Blind Development Process</h3>
+                    <p>Developers work independently without direct client interaction during the competition phase. This ensures fair competition, prevents bias, and allows developers to showcase their creativity and technical skills.</p>
                 </div>
-                <div class="use-case-card">
-                    <h3>Education & Training</h3>
-                    <p>Support students and participants with course questions, enrollment inquiries, and technical support.</p>
+            </div>
+            <div class="feature-highlight">
+                <div class="feature-highlight-icon">📊</div>
+                <div class="feature-highlight-content">
+                    <h3>Project Management Dashboard</h3>
+                    <p>Track project progress, review submissions, manage competitions, and monitor escrow status—all from a single, intuitive dashboard designed for both clients and developers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Clients Section -->
+    <section id="for-clients">
+        <div class="container">
+            <div class="section-header">
+                <h2>For Entrepreneurs & Businesses</h2>
+                <p>Get your projects built by talented student developers through competitive bidding</p>
+            </div>
+            <div class="two-column">
+                <div class="column-content">
+                    <h3>Why Choose Dandelion?</h3>
+                    <p>As a new entrepreneur or growing business, you need quality development work at competitive prices. Dandelion connects you with talented student developers who are eager to build real-world projects and gain valuable experience.</p>
+                    <ul class="benefit-list">
+                        <li>Multiple project options to choose from</li>
+                        <li>Competitive pricing from student developers</li>
+                        <li>Secure escrow protects your investment</li>
+                        <li>Automated code delivery to your GitHub</li>
+                        <li>Review projects safely through virtual machines</li>
+                        <li>No direct interaction needed during development</li>
+                    </ul>
+                </div>
+                <div class="column-content">
+                    <h3>How It Benefits You</h3>
+                    <p><strong>Quality at Scale:</strong> Multiple teams compete for your project, ensuring you get the best solution.</p>
+                    <p><strong>Risk-Free:</strong> Funds are held in escrow until you're satisfied with the winning project.</p>
+                    <p><strong>Seamless Integration:</strong> Winning code is automatically pushed to your GitHub repository, ready for deployment.</p>
+                    <p><strong>Protected IP:</strong> Review projects through virtual machines without exposing source code until selection.</p>
+                    <p><strong>Time Efficient:</strong> No need to manage multiple developers—just review and select the best option.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Developers Section -->
+    <section id="for-developers" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>For Student Developers</h2>
+                <p>Build real-world projects, compete fairly, and get paid for your work</p>
+            </div>
+            <div class="two-column">
+                <div class="column-content">
+                    <h3>Why Join Dandelion?</h3>
+                    <p>As a student developer, Dandelion gives you the opportunity to work on real projects for real clients. Compete with other talented teams, showcase your skills, and get paid for quality work.</p>
+                    <ul class="benefit-list">
+                        <li>Work on real-world projects for real clients</li>
+                        <li>Fair competition with other student teams</li>
+                        <li>Secure payment through escrow system</li>
+                        <li>Build your portfolio with actual projects</li>
+                        <li>No client interaction needed during development</li>
+                        <li>Automatic payment upon winning</li>
+                    </ul>
+                </div>
+                <div class="column-content">
+                    <h3>How It Works for You</h3>
+                    <p><strong>Fair Competition:</strong> All teams work independently without client bias, ensuring a level playing field.</p>
+                    <p><strong>Guaranteed Payment:</strong> Funds are held in escrow and automatically transferred when you win.</p>
+                    <p><strong>Portfolio Building:</strong> Every project you complete adds to your professional portfolio.</p>
+                    <p><strong>Real Experience:</strong> Work on actual business problems, not just academic exercises.</p>
+                    <p><strong>Flexible Work:</strong> Work on your own schedule and compete when it suits you.</p>
                 </div>
             </div>
         </div>
@@ -553,9 +690,12 @@
     <!-- CTA Section -->
     <section id="cta" class="cta-section">
         <div class="container">
-            <h2>Ready to Transform Your Customer Support?</h2>
-            <p>Join businesses that trust Dandelion to deliver exceptional customer experiences.</p>
-            <a href="#" class="cta-button">Start Your Free Trial</a>
+            <h2>Ready to Get Started?</h2>
+            <p>Join Dandelion today—whether you're an entrepreneur looking for development or a student developer ready to build real projects.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="#" class="cta-button" style="background: white; color: var(--primary-blue);">Post Your Project</a>
+                <a href="#" class="button-secondary" style="background: transparent; border: 2px solid white; color: white;">Join as Developer</a>
+            </div>
         </div>
     </section>
 
@@ -563,10 +703,10 @@
     <footer>
         <div class="footer-content">
             <div class="footer-links">
-                <a href="#features">Features</a>
                 <a href="#how-it-works">How It Works</a>
-                <a href="#use-cases">Use Cases</a>
-                <a href="#">Pricing</a>
+                <a href="#features">Features</a>
+                <a href="#for-clients">For Clients</a>
+                <a href="#for-developers">For Developers</a>
                 <a href="#">Documentation</a>
                 <a href="#">Contact</a>
             </div>
